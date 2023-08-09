@@ -2,7 +2,7 @@
   "name": "comic-gallery",
   "productName": "comic-gallery",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Comic Gallery Desktop App",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
@@ -11,12 +11,11 @@
     "publish": "electron-forge publish",
     "lint": "eslint --ext .ts,.tsx ."
   },
-  "keywords": [],
-  "author": {
-    "name": "nakamurameijin",
-    "email": "nakamurameijin@gmail.com"
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^6.2.1",
     "@electron-forge/maker-deb": "^6.2.1",
@@ -41,9 +40,10 @@
     "ts-node": "^10.0.0",
     "typescript": "~4.5.4"
   },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
+  "keywords": [],
+  "author": {
+    "name": "Carson Wah",
+    "email": "carsonwah@gmail.com"
+  },
+  "license": "MIT"
 }

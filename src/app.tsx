@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
+import NavBar from './components/NavBar';
+import CoverCard from './components/CoverCard';
+import { Button } from '@blueprintjs/core';
+
+const waitForUserSelectDirectory: () => Promise<string> = async () => {
+  const dirPath = await window.electronAPI.selectDir();
+  return dirPath;
+};
 
 function App() {
+  const [path, setPath] = useState('');
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>{path}</div>
+      <Button icon="folder-open" title='Open directory' onClick={async () => {
+        const newPath = await waitForUserSelectDirectory();
+        setPath(newPath);
+      }} />
+      <NavBar />
+      {/* <CoverCard imageUrl='file:' /> */}
     </div>
   );
 }

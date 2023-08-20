@@ -9,7 +9,16 @@ const BREADCRUMBS: BreadcrumbProps[] = [
   { icon: 'document', text: 'image.jpg' },
 ];
 
-const NavBar: FC = () => (
+const filePathToBreadcrumbRoutes = (filePath: string): BreadcrumbProps[] => {
+  return [];
+}
+
+type Props = {
+  filePath: string,
+  onChangePath: (props: { newPath: string }) => void,
+};
+
+const NavBar: FC<Props> = ({ filePath, onChangePath }) => (
   <Breadcrumbs
     currentBreadcrumbRenderer={({ text, ...restProps }: BreadcrumbProps) => (
       <Breadcrumb {...restProps}>{text} <Icon icon="star" /></Breadcrumb>

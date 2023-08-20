@@ -4,4 +4,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
   selectDir: () => ipcRenderer.invoke('dialog:selectDir'),
+  getAllFoldersInPathWithCoverPhotoPath: (folderPath: string) => ipcRenderer.invoke('file:getAllFoldersInPathWithCoverPhotoPath', { folderPath }),
+  readImageAsBase64Src: (folderPath: string) => ipcRenderer.invoke('file:readImageAsBase64Src', { folderPath }),
+  openFolder: (folderPath: string) => ipcRenderer.invoke('file:openFolder', { folderPath }),
 });

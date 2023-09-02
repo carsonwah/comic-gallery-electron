@@ -1,5 +1,7 @@
 # Comic Gallery
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A desktop comic gallery app for easily browsing comics on your computer.
 
 ## Motivation
@@ -14,6 +16,12 @@ A desktop comic gallery app for easily browsing comics on your computer.
 ## Download Packaged Application
 
 [GitHub Releases](https://github.com/carsonwah/comic-gallery-electron/releases)
+
+## Technology Stack
+
+- Electron (`webpack-typescript` template)
+- Typescript
+- React
 
 ## Getting Started
 

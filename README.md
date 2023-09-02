@@ -1,5 +1,13 @@
 # comic-gallery-electron
 
+## Motivation
+
+Provide a good explorer for local comic folders, showing the 1st image in the folder as "Comic Cover".
+
+## Demo
+
+![Demo](https://github.com/carsonwah/comic-gallery-electron/blob/main/doc/demo.png?raw=true)
+
 ## Getting Started
 
 ```bash

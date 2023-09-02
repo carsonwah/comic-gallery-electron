@@ -1,8 +1,11 @@
-# comic-gallery-electron
+# Comic Gallery
+
+A desktop comic gallery app for easily browsing comics on your computer.
 
 ## Motivation
 
-Provide a good explorer for local comic folders, showing the 1st image in the folder as "Comic Cover".
+- When browsing through folders, Windows/Mac file explorers does not show peek view of the content inside, which is a big pain point when browsing through comic folders.
+- This repo aims to provide a good explorer for local comic folders, showing the 1st image in the folder as "Comic Cover".
 
 ## Demo
 

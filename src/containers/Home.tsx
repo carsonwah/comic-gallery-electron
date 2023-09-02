@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { CSSProperties, FC, useState } from 'react';
 import { Button } from '@blueprintjs/core';
 
 import NavBar from '../components/NavBar';
@@ -14,11 +14,14 @@ const waitForUserSelectDirectory: () => Promise<string> = async () => {
 
 const Home: FC = () => {
   const [path, setPath] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [folders, setFolders] = useState<GalleryFolder[]>([]);
 
   const onChangeDirectory = async (newPath: string) => {
     console.debug(`onChangeDirectory(): started`);
+    if (!newPath) return;
     setPath(newPath);
+    setFolders([]);
     const newFolders = await getAllFoldersInPathWithCoverPhotoPath(newPath);
     setFolders(newFolders);
   };
@@ -26,7 +29,9 @@ const Home: FC = () => {
   const onClickSelectDirectory = async () => {
     console.debug(`onClickSelectDirectory(): started`);
     const newPath = await waitForUserSelectDirectory();
-    onChangeDirectory(newPath);
+    setIsLoading(true);
+    await onChangeDirectory(newPath);
+    setIsLoading(false);
   };
 
   const onClickFolder = async (folder: GalleryFolder) => {
@@ -36,17 +41,36 @@ const Home: FC = () => {
 
   return (
     <div className="App">
-      <div>{path}</div>
-      <Button icon="folder-open" text='Select directory' onClick={onClickSelectDirectory} />
+      <div style={styles.row}>Current Directory: {path}</div>
+      <div style={styles.row}>
+        <Button icon="folder-open" text='Select directory' onClick={onClickSelectDirectory} />
+      </div>
+      <div style={styles.row}>
+        { isLoading && <div>Loading...</div> }
+      </div>
       {/* <NavBar filePath={} onClickChangePath={} /> */}
-      {/* <CoverCard imageUrl='file:' /> */}
-      {
-        folders.map(folder => (
-          <CoverCard key={folder.name} imageUrl={folder.coverPhotoPath} title={folder.name} onClick={() => onClickFolder(folder)} />
-        ))
-      }
+      <div style={styles.cardArea}>
+        {
+          folders.map(folder => (
+            <CoverCard key={folder.name} imageUrl={folder.coverPhotoPath} title={folder.name} onClick={() => onClickFolder(folder)} />
+          ))
+        }
+      </div>
     </div>
   );
+};
+
+const styles: {[key: string]: CSSProperties} = {
+  row: {
+    marginTop: 8,
+  },
+  cardArea: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 8,
+  },
 };
 
 export default Home;

@@ -9,16 +9,20 @@ type Props = {
 const styles: {[key: string]: CSSProperties} = {
   container: {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     cursor: 'pointer',
+    width: '19%',
+    margin: 4,
+    marginTop: 8,
   },
   coverImage: {
-    width: 200,
-    height: 300,
+    width: '100%',
+    height: 'auto',
     objectFit: 'contain',
   },
   coverTitle: {
-    overflowX: 'scroll',
+    // overflowX: 'scroll',
   },
 };
 

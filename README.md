@@ -8,6 +8,10 @@ Provide a good explorer for local comic folders, showing the 1st image in the fo
 
 ![Demo](https://github.com/carsonwah/comic-gallery-electron/blob/main/doc/demo.png?raw=true)
 
+## Download Packaged Application
+
+[GitHub Releases](https://github.com/carsonwah/comic-gallery-electron/releases)
+
 ## Getting Started
 
 ```bash

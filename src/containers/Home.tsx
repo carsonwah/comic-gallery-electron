@@ -1,10 +1,9 @@
 import React, { CSSProperties, FC, useState } from 'react';
 import { Button } from '@blueprintjs/core';
 
-import NavBar from '../components/NavBar';
 import type { GalleryFolder } from '../../types/file';
 import CoverCard from '../components/CoverCard';
-import { getAllFoldersInPathWithCoverPhotoPath, selectDir, readImageAsBase64Src, openFolder } from '../api/electron-backend';
+import { getAllFoldersInPathWithCoverPhotoPath, selectDir, openFolder } from '../api/electron-backend';
 
 const waitForUserSelectDirectory: () => Promise<string> = async () => {
   const dirPath = await selectDir();
@@ -40,7 +39,7 @@ const Home: FC = () => {
   };
 
   return (
-    <div className="App">
+    <div style={styles.pageContainer}>
       <div style={styles.row}>Current Directory: {path}</div>
       <div style={styles.row}>
         <Button icon="folder-open" text='Select directory' onClick={onClickSelectDirectory} />
@@ -61,6 +60,11 @@ const Home: FC = () => {
 };
 
 const styles: {[key: string]: CSSProperties} = {
+  pageContainer: {
+    maxWidth: 1200,
+    minWidth: 700,
+    overflowX: 'visible',
+  },
   row: {
     marginTop: 8,
   },

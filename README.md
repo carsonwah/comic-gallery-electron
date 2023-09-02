@@ -21,5 +21,6 @@ yarn start
 yarn make
 
 # Publish e.g. to GitHub
+# Pre-requisite: Set GITHUB_TOKEN or update authToken in forge.config.ts
 yarn publish
 ```

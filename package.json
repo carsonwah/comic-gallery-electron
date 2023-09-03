@@ -1,7 +1,7 @@
 {
   "name": "comic-gallery",
   "productName": "comic-gallery",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Comic Gallery Desktop App",
   "main": ".webpack/main",
   "private": true,

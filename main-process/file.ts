@@ -4,7 +4,7 @@ import { dialog, shell } from 'electron';
 
 import type { GalleryFolder } from '../types/file';
 
-const SUPPORTED_IMAGE_TYPES = ['.jpg', '.png'];
+const SUPPORTED_IMAGE_TYPES = ['.jpg', '.png', '.jpeg', '.webp'];
 
 const handleUserSelectDir: () => Promise<string> = async () => {
   const { canceled, filePaths } = await dialog.showOpenDialog({ properties: ['openDirectory'] });
